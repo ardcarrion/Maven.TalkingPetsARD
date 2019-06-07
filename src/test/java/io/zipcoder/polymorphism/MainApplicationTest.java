@@ -6,6 +6,7 @@ import io.zipcoder.pets.Dog;
 import io.zipcoder.pets.Pet;
 import org.junit.Test;
 import org.junit.Assert;
+import sun.applet.Main;
 
 /**
  * Created by leon on 11/6/17.
@@ -109,5 +110,26 @@ public class MainApplicationTest {
         String expected = "McDonald";
         Assert.assertEquals(expected,pet.getName());
     }
+
+
+
+    @Test
+    public void createPetStringTest() {
+        String expected ="Dog Zack";
+        String actual = MainApplication.createPetString("Dog", "Zack");
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void petInputAsStringTest() {
+        Integer numOfPet = 3;
+        String[] petTypes = {"Dog", "Cat", "Bird"};
+        String[] petNames = {"Copper", "Mimi", "Baker"};
+        String expected = "Dog Copper\nCat Mimi\nBird Baker";
+        String[] actual = MainApplication.petInputAsString(3, petTypes, petNames);
+
+        Assert.assertEquals(expected, actual);
+    }
+
 
 }

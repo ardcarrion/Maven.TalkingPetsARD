@@ -24,4 +24,11 @@ public class MainApplication {
         return null;
     }
 
+    public static String createPetString(String type, String name) {
+        return null;
+    }
+
+    public static String[] petInputAsString(int i, String[] petTypes, String[] petNames) {
+        return null;
+    }
 }
