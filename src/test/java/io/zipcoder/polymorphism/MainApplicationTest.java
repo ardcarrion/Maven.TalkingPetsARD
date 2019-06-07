@@ -1,11 +1,11 @@
 package io.zipcoder.polymorphism;
 
-import jdk.internal.jline.internal.TestAccessible;
+import io.zipcoder.pets.Bird;
+import io.zipcoder.pets.Cat;
+import io.zipcoder.pets.Dog;
+import io.zipcoder.pets.Pet;
 import org.junit.Test;
 import org.junit.Assert;
-import org.omg.PortableServer.THREAD_POLICY_ID;
-
-import java.io.*;
 
 /**
  * Created by leon on 11/6/17.
@@ -13,41 +13,101 @@ import java.io.*;
 public class MainApplicationTest {
 
     @Test
-    public void askPetInfoTest() {
-        //ask how many pets they have
-        //what kind of pet each is alone with each pet's name
-        //hole onto user input and print out the list at the end
+    public void createPetInvalidTest(){
+        Pet pet = MainApplication.createPet("hfioewjd", "zack");
 
-        /*
-        program prints prompt for input
-        user responds with number
-        kind of pet along with each pet's name save info
-         */
-        //Given
-        InputStream input = System.in;
-        PrintStream output = System.out;
+        Assert.assertNull(pet);
+    }
 
-        final PipedOutputStream testInput = new PipedOutputStream();
-        PipedOutputStream out = new PipedOutputStream();
-        final PipedInputStream testOutput = new PipedInputStream();
-        System.setIn(new PipedInputStream(testInput));
-        System.setOut(new PrintStream(out));
+    @Test
+    public void createPetDogTest1(){
+        Pet pet = MainApplication.createPet("dog", "zack");
 
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    PrintStream testPrint = new PrintStream(testInput);
-                    BufferedReader testReader = new BufferedReader(new InputStreamReader(testOutput));
-                    String expectedPrompt = "How many pets do you have?"
-                    Assert.assertEquals(expectedPrompt, testReader.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    e.getMessage();
-                }
-            }
-        }
+        Assert.assertTrue(pet instanceof Dog);
+    }
+
+    @Test
+    public void createPetDogTest2(){
+        Pet pet = MainApplication.createPet("Dog", "zack");
+
+        Assert.assertTrue(pet instanceof Dog);
+    }
+
+    @Test
+    public void createPetDogTest3(){
+        Pet pet = MainApplication.createPet("DOG", "zack");
+
+        Assert.assertTrue(pet instanceof Dog);
+    }
+    @Test
+    public void createPetCatTest1(){
+        Pet pet = MainApplication.createPet("cat", "Rover");
+
+        Assert.assertTrue(pet instanceof Cat);
+    }
+
+    @Test
+    public void createPetCatTest2(){
+        Pet pet = MainApplication.createPet("Cat", "Rover");
+
+        Assert.assertTrue(pet instanceof Cat);
+    }
+
+    @Test
+    public void createPetCatTest3(){
+        Pet pet = MainApplication.createPet("CAT", "Rover");
+
+        Assert.assertTrue(pet instanceof Cat);
+    }
 
 
+    @Test
+    public void createPetBirdTest1(){
+        Pet pet = MainApplication.createPet("bird", "Cookie");
+
+        Assert.assertTrue(pet instanceof Bird);
+    }
+
+    @Test
+    public void createPetBirdTest2(){
+        Pet pet = MainApplication.createPet("Bird", "Cookie");
+
+        Assert.assertTrue(pet instanceof Bird);
+    }
+
+    @Test
+    public void createPetBirdTest3(){
+        Pet pet = MainApplication.createPet("BIRD", "Cookie");
+
+        Assert.assertTrue(pet instanceof Bird);
+    }
+
+    @Test
+    public void createPetNameTest1(){
+        Pet pet = MainApplication.createPet("Dog", "Zack");
+        String expected = "Zack";
+        Assert.assertEquals(expected,pet.getName());
+    }
+
+    @Test
+    public void createPetNameTest2(){
+        Pet pet = MainApplication.createPet("Dog", "zack");
+        String expected = "Zack";
+        Assert.assertEquals(expected,pet.getName());
+    }
+
+    @Test
+    public void createPetNameTest3(){
+        Pet pet = MainApplication.createPet("Dog", "white fang");
+        String expected = "White Fang";
+        Assert.assertEquals(expected,pet.getName());
+    }
+
+    @Test
+    public void createPetNameTest4(){
+        Pet pet = MainApplication.createPet("Dog", "McDonald");
+        String expected = "McDonald";
+        Assert.assertEquals(expected,pet.getName());
     }
 
 }
