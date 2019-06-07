@@ -10,6 +10,7 @@ import sun.applet.Main;
 
 /**
  * Created by leon on 11/6/17.
+ * Edited by Joanna Hsiao on 6/7/19.
  */
 public class MainApplicationTest {
 
