@@ -28,7 +28,7 @@ public class MainApplication {
         return null;
     }
 
-    public static String[] petInputAsString(int i, String[] petTypes, String[] petNames) {
+    public static String[] petInputAsString(Integer numberOfPets, String[] petTypes, String[] petNames) {
         return null;
     }
 
