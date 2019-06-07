@@ -126,7 +126,7 @@ public class MainApplicationTest {
         String[] petTypes = {"Dog", "Cat", "Bird"};
         String[] petNames = {"Copper", "Mimi", "Baker"};
         String expected = "Dog Copper\nCat Mimi\nBird Baker\n";
-        String[] actual = MainApplication.petInputAsString(3, petTypes, petNames);
+        String actual = MainApplication.petInputAsString(3, petTypes, petNames);
 
         Assert.assertEquals(expected, actual);
     }
