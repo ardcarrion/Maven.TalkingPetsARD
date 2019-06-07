@@ -131,5 +131,17 @@ public class MainApplicationTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void petSaysTest() {
+        String expected = "Copper the Dog says \"Roof roof!\"\n"
+                + "Mimi the Cat says \"Purrr...\"\n"
+                + "Baker the Bird says \"Chirp chirp!\"\n";
+
+        Pet[] pets = {new Dog("Copper"), new Cat("Mimi"), new Bird("Baker")};
+
+        String actual = MainApplication.petSays(pets);
+
+        Assert.assertEquals(expected,actual);
+    }
 
 }
